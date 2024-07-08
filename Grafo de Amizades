@@ -1,0 +1,35 @@
+import networkx as nx
+import matplotlib.pylot as plt
+
+
+def add_user(grafo, user):
+  grafo.add_node(user)
+  print(f'Usuário {user} adicionado com sucesso!')
+
+def add_friendship(grafo, user1, user2):
+  grafo.add_edge(user1, user2)
+  print(f'Amizade entre {user1} e {user2} adicionada com sucesso!')
+
+def main():
+  grafo_friendship = nx.Graph()
+
+  user = ['Creuza', 'Eduardo', 'Tiburcia', 'Zeca']
+  for user in users:
+    add_user(grafo_friendships, user)
+
+  relations_friendship = [('Creuza', 'Eduardo'), ('Creuza', 'Tiburcia'), ('Eduardo', 'Zeca'), ('Tiburcia', 'Zeca')]
+  for friendship in relations_friendship:
+    add_friendship(grafo_friendships, friendship[0], friendship[1])
+
+  print('\nLista de Usuários:')
+  print(grafo_friendships.nodes())
+  print('\nLista de relações de amizades:')
+  print(grafo_friendships.edges())
+
+  plt.figure(figsize=(8,6))
+  nx.draw(grafo_friendships, with_labels=True, node_size=1000, node_color='skyblue', font_size=12, font_weight='bold')
+  plt.title('Grafo de Relações de Amizades')
+  plt.show()
+
+if __name__ == '__main__':
+  main()
